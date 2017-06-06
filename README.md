@@ -14,15 +14,13 @@ Supports:
  - Snap to center after scroll.
  - Both horizontal and vertical direction.
 
-Fork of <a href='https://github.com/Akkyie/AKPickerView-Swift'>AKPickerView-Swift</a>. Works in iOS 8
+Fork of <a href='https://github.com/Akkyie/AKPickerView-Swift'>AKPickerView-Swift</a>. Works in iOS 8.
 
 <img src="./Screenshot.gif" width="200" alt="Screenshot" />
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 

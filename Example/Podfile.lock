@@ -18,7 +18,7 @@ DEPENDENCIES:
   - CollectionPickerView (from `../`)
   - FBSnapshotTestCase
   - Nimble (~> 5.1.1)
-  - Nimble-Snapshots
+  - Nimble-Snapshots (= 4.4.0)
   - Quick (~> 1.0.0)
 
 EXTERNAL SOURCES:
@@ -26,12 +26,12 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CollectionPickerView: 0bc08bfd1a10152012d63dbfbf81493e050a7694
+  CollectionPickerView: 26dc7c8d718e54da3d4f331852f2d8f6de945088
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: c0b6fa00ad707db55e57939e9630695e5b8d7ac1
+PODFILE CHECKSUM: 1e18e55c0c9b612a15fdc8270712cf6a1dab31dd
 
 COCOAPODS: 1.2.1
