@@ -9,16 +9,18 @@
 Pod::Spec.new do |s|
   s.name             = 'CollectionPickerView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of CollectionPickerView.'
+  s.summary          = 'A generic customizable picker view based on UICollectionView.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+
+Fork of AKPickerView-Swift
+
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Generic and customizable picker based on UICollectionView. Picker cells are fully
+  customizable. Supports flat/wheel look, snap to center after scroll, horizontal
+  and vertical direction.
+
+  Fork of AKPickerView-Swift. Works in iOS 8.
                        DESC
 
   s.homepage         = 'https://github.com/3ph/CollectionPickerView'
@@ -31,7 +33,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'CollectionPickerView/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   'CollectionPickerView' => ['CollectionPickerView/Assets/*.png']
   # }

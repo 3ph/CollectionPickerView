@@ -5,6 +5,19 @@
 [![License](https://img.shields.io/cocoapods/l/CollectionPickerView.svg?style=flat)](http://cocoapods.org/pods/CollectionPickerView)
 [![Platform](https://img.shields.io/cocoapods/p/CollectionPickerView.svg?style=flat)](http://cocoapods.org/pods/CollectionPickerView)
 
+
+<img src="./Screenshot.gif" width="200" alt="Screenshot" />
+
+Generic and customizable picker based on UICollectionView. Picker cells are fully
+customizable.
+
+Supports:
+ - Flat/wheel look.
+ - Snap to center after scroll.
+ - Both horizontal and vertical direction.
+
+Fork of AKPickerView-Swift. Works in iOS 8
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
