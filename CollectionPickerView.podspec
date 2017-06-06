@@ -11,10 +11,6 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'A generic customizable picker view based on UICollectionView.'
 
-
-Fork of AKPickerView-Swift
-
-
   s.description      = <<-DESC
   Generic and customizable picker based on UICollectionView. Picker cells are fully
   customizable. Supports flat/wheel look, snap to center after scroll, horizontal

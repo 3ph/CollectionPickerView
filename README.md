@@ -6,8 +6,6 @@
 [![Platform](https://img.shields.io/cocoapods/p/CollectionPickerView.svg?style=flat)](http://cocoapods.org/pods/CollectionPickerView)
 
 
-<img src="./Screenshot.gif" width="200" alt="Screenshot" />
-
 Generic and customizable picker based on UICollectionView. Picker cells are fully
 customizable.
 
@@ -16,7 +14,9 @@ Supports:
  - Snap to center after scroll.
  - Both horizontal and vertical direction.
 
-Fork of AKPickerView-Swift. Works in iOS 8
+Fork of <a href='https://github.com/Akkyie/AKPickerView-Swift'>AKPickerView-Swift</a>. Works in iOS 8
+
+<img src="./Screenshot.gif" width="200" alt="Screenshot" />
 
 ## Example
 
