@@ -56,12 +56,28 @@ class ViewController: UIViewController {
         // Uncomment to prevent selection on scroll
         //pickerView.selectCenter = false
         
+        // Uncomment to set spacing between cells, default 10
+        //pickerView.cellSpacing = 10
+        
+        // Uncomment to set cell size (width for horizontal, height for vertical style), default 100
+        //pickerView.cellSize = 100
+        
+        // Uncomment to set wheel effect perspective representation
+        //pickerView.viewDepth = 2000
+        
+        // Uncomment to enable/disable fading gradient mask
+        //pickerView.maskDisabled = false
+        
+        // Current selected index might be obtained from selectedIndex
+        //NSLog("\(pickerView.selectedIndex)")
+        
+        // Reload the picker view
         pickerView.reloadData()
     }
     
     fileprivate func sizeForString(_ string: NSString) -> CGSize {
-		let size = string.size(attributes: [NSFontAttributeName: self.font])
-		let highlightedSize = string.size(attributes: [NSFontAttributeName: self.highlightedFont])
+		let size = string.size(withAttributes: [NSAttributedStringKey.font: self.font])
+		let highlightedSize = string.size(withAttributes: [NSAttributedStringKey.font: self.highlightedFont])
 		return CGSize(
 			width: ceil(max(size.width, highlightedSize.width)),
 			height: ceil(max(size.height, highlightedSize.height)))

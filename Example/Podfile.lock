@@ -1,37 +1,22 @@
 PODS:
-  - CollectionPickerView (0.1.0)
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - Nimble (5.1.1)
-  - Nimble-Snapshots (4.4.0):
-    - Nimble-Snapshots/Core (= 4.4.0)
-  - Nimble-Snapshots/Core (4.4.0):
-    - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
-  - Quick (1.0.0)
+  - CollectionPickerView (0.1.1)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
 
 DEPENDENCIES:
   - CollectionPickerView (from `../`)
-  - FBSnapshotTestCase
-  - Nimble (~> 5.1.1)
-  - Nimble-Snapshots (= 4.4.0)
-  - Quick (~> 1.0.0)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
 
 EXTERNAL SOURCES:
   CollectionPickerView:
     :path: ../
 
 SPEC CHECKSUMS:
-  CollectionPickerView: 26dc7c8d718e54da3d4f331852f2d8f6de945088
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  CollectionPickerView: c4de5bd7d34b8dc76cb79a2075a81142ab2835b7
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
 
-PODFILE CHECKSUM: 1e18e55c0c9b612a15fdc8270712cf6a1dab31dd
+PODFILE CHECKSUM: 4fa0d8f0d982f4b04b40923b21afa088acc92b3e
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0.beta.2

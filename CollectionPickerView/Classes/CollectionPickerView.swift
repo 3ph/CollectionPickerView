@@ -88,7 +88,7 @@ public class CollectionPickerView: UIView {
         }
     }
     
-    /// Readwrite. A float value which determines the perspective representation which used when using AKPickerViewStyle.Wheel style.
+    /// Readwrite. A float value which determines the perspective representation which used when using wheel style.
     @IBInspectable public var viewDepth: CGFloat = 2000 {
         didSet {
             didSetViewDepth()

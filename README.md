@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/CollectionPickerView.svg?style=flat)](http://cocoapods.org/pods/CollectionPickerView)
 [![License](https://img.shields.io/cocoapods/l/CollectionPickerView.svg?style=flat)](http://cocoapods.org/pods/CollectionPickerView)
 [![Platform](https://img.shields.io/cocoapods/p/CollectionPickerView.svg?style=flat)](http://cocoapods.org/pods/CollectionPickerView)
+![Swift](https://img.shields.io/badge/%20in-swift%204.0-orange.svg)
 
 
 Generic and customizable picker based on UICollectionView. Picker cells are fully
@@ -33,7 +34,7 @@ pod "CollectionPickerView"
 
 ## Author
 
-3ph, instantni.med@gmail.com
+Tomas Friml, instantni.med@gmail.com
 
 ## License
 

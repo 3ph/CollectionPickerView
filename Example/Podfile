@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '8.3'
 
 target 'CollectionPickerView_Example' do
   pod 'CollectionPickerView', :path => '../'
@@ -6,9 +7,7 @@ target 'CollectionPickerView_Example' do
   target 'CollectionPickerView_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots', '= 4.4.0'
+  pod 'Quick', '~> 1.2.0'
+  pod 'Nimble', '~> 7.0.2'
   end
 end

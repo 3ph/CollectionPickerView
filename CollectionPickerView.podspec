@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CollectionPickerView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A generic customizable picker view based on UICollectionView.'
 
   s.description      = <<-DESC
