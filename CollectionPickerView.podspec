@@ -29,12 +29,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'CollectionPickerView/Classes/**/*'
-
-  # s.resource_bundles = {
-  #   'CollectionPickerView' => ['CollectionPickerView/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 end
