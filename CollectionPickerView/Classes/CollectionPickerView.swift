@@ -154,8 +154,8 @@ public class CollectionPickerView: UIView {
     }
     
     /**
-	Reload the picker view's contents and styles. Call this method always after any property is changed.
-	*/
+     Reload the picker view's contents and styles. Call this method always after any property is changed.
+     */
     public func reloadData() {
         invalidateIntrinsicContentSize()
         collectionView.collectionViewLayout.invalidateLayout()
@@ -163,9 +163,8 @@ public class CollectionPickerView: UIView {
         if collectionView.numberOfItems(inSection: 0) > 0 {
             selectItem(at: selectedIndex, animated: false)
         }
-	}
+    }
     
-
     // MARK: - Private
     fileprivate var _flowLayout : CollectionPickerViewFlowLayout? {
         get {
@@ -194,37 +193,37 @@ public class CollectionPickerView: UIView {
         didSetViewDepth()
     }
     
-
+    
     /**
-	Private. Used to calculate the x-coordinate of the content offset of specified item.
-	:param: item An integer value which indicates the index of cell.
-	:returns: An x/y-coordinate of the cell whose index is given one.
-	*/
+     Private. Used to calculate the x-coordinate of the content offset of specified item.
+     :param: item An integer value which indicates the index of cell.
+     :returns: An x/y-coordinate of the cell whose index is given one.
+     */
     fileprivate func offsetForItem(at index: Int) -> CGFloat {
-        var offset: CGFloat = 0
+        let firstIndexPath = IndexPath(item: 0, section: 0)
+        let firstSize = self.collectionView(
+            collectionView,
+            layout: collectionView.collectionViewLayout,
+            sizeForItemAt: firstIndexPath)
+        var offset: CGFloat = isHorizontal ? firstSize.width : firstSize.height * 2
         for i in 0 ..< index {
             let indexPath = IndexPath(item: i, section: 0)
             let cellSize = self.collectionView(
                 collectionView,
                 layout: collectionView.collectionViewLayout,
                 sizeForItemAt: indexPath)
-            offset += (isHorizontal ? cellSize.width : cellSize.height) + cellSpacing
+            offset += (isHorizontal ? cellSize.width : cellSize.height)
         }
         
-        let firstIndexPath = IndexPath(item: 0, section: 0)
-        let firstSize = self.collectionView(
-            collectionView,
-            layout: collectionView.collectionViewLayout,
-            sizeForItemAt: firstIndexPath)
         let selectedIndexPath = IndexPath(item: index, section: 0)
         let selectedSize = self.collectionView(
             collectionView,
             layout: collectionView.collectionViewLayout,
             sizeForItemAt: selectedIndexPath)
         if isHorizontal {
-            offset -= (firstSize.width - selectedSize.width) / 2.0
+            offset -= collectionView.bounds.width / 2 - selectedSize.width / 2
         } else {
-            offset -= (firstSize.height - selectedSize.height) / 2.0
+            offset -= collectionView.bounds.height / 2 - selectedSize.height / 2
         }
         
         return offset
@@ -260,9 +259,9 @@ public class CollectionPickerView: UIView {
      */
     fileprivate func selectItem(at index: Int, animated: Bool, scroll: Bool, notifySelection: Bool) {
         /*
-        let oldIndexPath = IndexPath(item: selectedIndex, section: 0)
-        let newIndexPath = IndexPath(item: index, section: 0)
-        */
+         let oldIndexPath = IndexPath(item: selectedIndex, section: 0)
+         let newIndexPath = IndexPath(item: index, section: 0)
+         */
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.selectItem(
             at: indexPath,
@@ -276,8 +275,8 @@ public class CollectionPickerView: UIView {
         self.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
         
         /*
-        selectedItem = item
-        */
+         selectedItem = item
+         */
     }
     
     
@@ -333,11 +332,11 @@ extension CollectionPickerView {
         
         reloadData()
         
-        if collectionView.numberOfItems(inSection: 0) > 0 {
-            scrollToItem(at: selectedIndex)
-        }
         collectionView.frame = collectionView.superview!.bounds
         collectionView.layer.mask?.frame = collectionView.bounds
+        if collectionView.numberOfItems(inSection: 0) > 0 {
+            selectItem(at: selectedIndex)
+        }
     }
 }
 
@@ -394,7 +393,6 @@ extension CollectionPickerView : UIScrollViewDelegate {
 }
 
 extension CollectionPickerView: UICollectionViewDelegateFlowLayout {
-    
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let number = collectionView.numberOfItems(inSection: section)
         let firstIndexPath = IndexPath(item: 0, section: section)

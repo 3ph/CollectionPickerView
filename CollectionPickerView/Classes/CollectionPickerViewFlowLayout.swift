@@ -53,7 +53,7 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
             return CGRect.zero
         }
     }
-
+    
     func initialize() {
         sectionInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         minimumLineSpacing = 0.0
@@ -111,63 +111,59 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
         return super.layoutAttributesForElements(in: rect)
     }
     
-    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let cv = collectionView else { return CGPoint.zero }
-        var offsetAdjustment: CGFloat = CGFloat.greatestFiniteMagnitude
-        
-        
-        let center: CGFloat = _isHorizontal ? proposedContentOffset.x + (cv.bounds.width / 2) : proposedContentOffset.y + (cv.bounds.height / 2)
-        let targetRect = CGRect(x: _isHorizontal ? proposedContentOffset.x : 0, y: _isHorizontal ? 0 : proposedContentOffset.y, width: cv.bounds.size.width, height: cv.bounds.size.height)
-        let array:[UICollectionViewLayoutAttributes] = layoutAttributesForElements(in: targetRect)!
-        for layoutAttributes: UICollectionViewLayoutAttributes in array {
-            let itemCenter: CGFloat = _isHorizontal ? layoutAttributes.center.x : layoutAttributes.center.y
-            if abs(itemCenter - center) < abs(offsetAdjustment) {
-                offsetAdjustment = itemCenter - center
-            }
-        }
-        return CGPoint(x: proposedContentOffset.x + (_isHorizontal ? offsetAdjustment : 0), y: proposedContentOffset.y + (_isHorizontal ? 0 : offsetAdjustment))
-    }
-    
-    /*
+    //    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    //        guard let cv = collectionView else { return CGPoint.zero }
+    //
+    //        let dim = _isHorizontal ? cv.bounds.width : cv.bounds.height
+    //        let halfDim = dim / 2
+    //        var offsetAdjustment: CGFloat = CGFloat.greatestFiniteMagnitude
+    //        var selectedCenter: CGFloat = dim
+    //
+    //        let center: CGFloat = _isHorizontal ? proposedContentOffset.x + halfDim : proposedContentOffset.y + halfDim
+    //        let targetRect = CGRect(x: _isHorizontal ? proposedContentOffset.x : 0, y: _isHorizontal ? 0 : proposedContentOffset.y, width: cv.bounds.size.width, height: cv.bounds.size.height)
+    //        let array:[UICollectionViewLayoutAttributes] = layoutAttributesForElements(in: targetRect)!
+    //        for layoutAttributes: UICollectionViewLayoutAttributes in array {
+    //            let itemCenter: CGFloat = _isHorizontal ? layoutAttributes.center.x : layoutAttributes.center.y
+    //            if abs(itemCenter - center) < abs(offsetAdjustment) {
+    //                offsetAdjustment = itemCenter - center
+    //                selectedCenter = itemCenter
+    //                NSLog("PropX: \(proposedContentOffset.x), offset: \(offsetAdjustment), itemCenter: \(itemCenter), center: \(center)")
+    //            }
+    //        }
+    //        return CGPoint(x: proposedContentOffset.x - (_isHorizontal ? offsetAdjustment : 0), y: proposedContentOffset.y + (_isHorizontal ? 0 : offsetAdjustment))
+    //    }
     
     var snapToCenter : Bool = true
     
     var mostRecentOffset : CGPoint = CGPoint()
     
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+    public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         let isHorizontal = scrollDirection == .horizontal
         
         if snapToCenter == false {
             return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
         }
         guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
-
+        
         var offsetAdjustment = CGFloat.greatestFiniteMagnitude
         let offset = isHorizontal ? proposedContentOffset.x + collectionView.contentInset.left : proposedContentOffset.y + collectionView.contentInset.top
-
+        
         let targetRect : CGRect
         if isHorizontal {
             targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
         } else {
             targetRect = CGRect(x: 0, y: proposedContentOffset.y, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
         }
-
+        
         let layoutAttributesArray = super.layoutAttributesForElements(in: targetRect)
-
+        
         layoutAttributesArray?.forEach({ (layoutAttributes) in
             let itemOffset = isHorizontal ? layoutAttributes.frame.origin.x : layoutAttributes.frame.origin.y
             if fabsf(Float(itemOffset - offset)) < fabsf(Float(offsetAdjustment)) {
                 offsetAdjustment = itemOffset - offset
             }
         })
-
-        if isHorizontal {
-            return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
-        } else {
-            return CGPoint(x: proposedContentOffset.x, y: proposedContentOffset.y + offsetAdjustment)
-        }
-    }
-    
+        
         if (isHorizontal && velocity.x == 0) || (isHorizontal == false && velocity.y == 0) {
             return mostRecentOffset
         }
@@ -224,5 +220,4 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
         mostRecentOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
         return mostRecentOffset
     }
- */
 }
