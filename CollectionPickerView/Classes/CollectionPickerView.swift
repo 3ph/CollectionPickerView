@@ -205,7 +205,9 @@ public class CollectionPickerView: UIView {
             collectionView,
             layout: collectionView.collectionViewLayout,
             sizeForItemAt: firstIndexPath)
-        var offset: CGFloat = isHorizontal ? firstSize.width : firstSize.height * 2
+        var offset: CGFloat = isHorizontal
+            ? collectionView.bounds.width / 2 - firstSize.width / 4
+            : collectionView.bounds.height / 2 - firstSize.height / 4
         for i in 0 ..< index {
             let indexPath = IndexPath(item: i, section: 0)
             let cellSize = self.collectionView(
@@ -359,9 +361,9 @@ extension CollectionPickerView : UIScrollViewDelegate {
                     sizeForItemAt: indexPath)
                 if (isHorizontal && (offsetForItem(at: i) + cellSize.width / 2 > collectionView.contentOffset.x))
                     || (isHorizontal == false && (offsetForItem(at: i) + cellSize.height / 2 > collectionView.contentOffset.y)) {
-                    if i != selectedIndex {
+                    //if i != selectedIndex {
                         selectItem(at: i, animated: true, scroll: end, notifySelection: true)
-                    }
+                    //}
                     break
                 }
             }

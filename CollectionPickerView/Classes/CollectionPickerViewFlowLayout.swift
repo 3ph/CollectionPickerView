@@ -140,81 +140,81 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
     public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         let isHorizontal = scrollDirection == .horizontal
         
-        if snapToCenter == false {
-            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
-        }
-        guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
-        
-        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
-        let offset = isHorizontal ? proposedContentOffset.x + collectionView.contentInset.left : proposedContentOffset.y + collectionView.contentInset.top
-        
-        let targetRect : CGRect
-        if isHorizontal {
-            targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
-        } else {
-            targetRect = CGRect(x: 0, y: proposedContentOffset.y, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
-        }
-        
-        let layoutAttributesArray = super.layoutAttributesForElements(in: targetRect)
-        
-        layoutAttributesArray?.forEach({ (layoutAttributes) in
-            let itemOffset = isHorizontal ? layoutAttributes.frame.origin.x : layoutAttributes.frame.origin.y
-            if fabsf(Float(itemOffset - offset)) < fabsf(Float(offsetAdjustment)) {
-                offsetAdjustment = itemOffset - offset
-            }
-        })
-        
-        if (isHorizontal && velocity.x == 0) || (isHorizontal == false && velocity.y == 0) {
-            return mostRecentOffset
-        }
-        
-        if let cv = self.collectionView {
-            
-            let cvBounds = cv.bounds
-            let half = (isHorizontal ? cvBounds.size.width : cvBounds.size.height) * 0.5;
-            
-            if let attributesForVisibleCells = self.layoutAttributesForElements(in: cvBounds) {
-                
-                var candidateAttributes : UICollectionViewLayoutAttributes?
-                for attributes in attributesForVisibleCells {
-                    
-                    // == Skip comparison with non-cell items (headers and footers) == //
-                    if attributes.representedElementCategory != UICollectionElementCategory.cell {
-                        continue
-                    }
-                    
-                    if isHorizontal {
-                        if attributes.center.x == 0 || (attributes.center.x > (cv.contentOffset.x + half) && velocity.x < 0) {
-                            continue
-                        }
-                    } else {
-                        if attributes.center.y == 0 || (attributes.center.y > (cv.contentOffset.y + half) && velocity.y < 0) {
-                            continue
-                        }
-                    }
-                    
-                    candidateAttributes = attributes
-                }
-                
-                // Beautification step , I don't know why it works!
-                if (isHorizontal && proposedContentOffset.x == -cv.contentInset.left)
-                    || (isHorizontal == false && proposedContentOffset.y == -cv.contentInset.top) {
-                    return proposedContentOffset
-                }
-                
-                guard let _ = candidateAttributes else {
-                    return mostRecentOffset
-                }
-                
-                if isHorizontal {
-                    mostRecentOffset = CGPoint(x: floor(candidateAttributes!.center.x - half), y: proposedContentOffset.y)
-                } else {
-                    mostRecentOffset = CGPoint(x: proposedContentOffset.y, y: floor(candidateAttributes!.center.y - half))
-                }
-                
-                return mostRecentOffset
-            }
-        }
+//        if snapToCenter == false {
+//            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
+//        }
+//        guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
+//
+//        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
+//        let offset = isHorizontal ? proposedContentOffset.x + collectionView.contentInset.left : proposedContentOffset.y + collectionView.contentInset.top
+//
+//        let targetRect : CGRect
+//        if isHorizontal {
+//            targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
+//        } else {
+//            targetRect = CGRect(x: 0, y: proposedContentOffset.y, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
+//        }
+//
+//        let layoutAttributesArray = super.layoutAttributesForElements(in: targetRect)
+//
+//        layoutAttributesArray?.forEach({ (layoutAttributes) in
+//            let itemOffset = isHorizontal ? layoutAttributes.frame.origin.x : layoutAttributes.frame.origin.y
+//            if fabsf(Float(itemOffset - offset)) < fabsf(Float(offsetAdjustment)) {
+//                offsetAdjustment = itemOffset - offset
+//            }
+//        })
+//
+//        if (isHorizontal && velocity.x == 0) || (isHorizontal == false && velocity.y == 0) {
+//            return mostRecentOffset
+//        }
+//
+//        if let cv = self.collectionView {
+//
+//            let cvBounds = cv.bounds
+//            let half = (isHorizontal ? cvBounds.size.width : cvBounds.size.height) * 0.5;
+//
+//            if let attributesForVisibleCells = self.layoutAttributesForElements(in: cvBounds) {
+//
+//                var candidateAttributes : UICollectionViewLayoutAttributes?
+//                for attributes in attributesForVisibleCells {
+//
+//                    // == Skip comparison with non-cell items (headers and footers) == //
+//                    if attributes.representedElementCategory != UICollectionElementCategory.cell {
+//                        continue
+//                    }
+//
+//                    if isHorizontal {
+//                        if attributes.center.x == 0 || (attributes.center.x > (cv.contentOffset.x + half) && velocity.x < 0) {
+//                            continue
+//                        }
+//                    } else {
+//                        if attributes.center.y == 0 || (attributes.center.y > (cv.contentOffset.y + half) && velocity.y < 0) {
+//                            continue
+//                        }
+//                    }
+//
+//                    candidateAttributes = attributes
+//                }
+//
+//                // Beautification step , I don't know why it works!
+//                if (isHorizontal && proposedContentOffset.x == -cv.contentInset.left)
+//                    || (isHorizontal == false && proposedContentOffset.y == -cv.contentInset.top) {
+//                    return proposedContentOffset
+//                }
+//
+//                guard let _ = candidateAttributes else {
+//                    return mostRecentOffset
+//                }
+//
+//                if isHorizontal {
+//                    mostRecentOffset = CGPoint(x: floor(candidateAttributes!.center.x - half), y: proposedContentOffset.y)
+//                } else {
+//                    mostRecentOffset = CGPoint(x: proposedContentOffset.y, y: floor(candidateAttributes!.center.y - half))
+//                }
+//
+//                return mostRecentOffset
+//            }
+//        }
         
         // fallback
         mostRecentOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
