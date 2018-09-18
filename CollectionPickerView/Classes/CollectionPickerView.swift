@@ -119,9 +119,9 @@ public class CollectionPickerView: UIView {
     public override var intrinsicContentSize : CGSize {
         // TODO: figure out max.
         if isHorizontal {
-            return CGSize(width: UIViewNoIntrinsicMetric, height: cellSize)
+            return CGSize(width: UIView.noIntrinsicMetric, height: cellSize)
         } else {
-            return CGSize(width: cellSize, height: UIViewNoIntrinsicMetric)
+            return CGSize(width: cellSize, height: UIView.noIntrinsicMetric)
         }
     }
     
@@ -182,7 +182,7 @@ public class CollectionPickerView: UIView {
         collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.backgroundColor = UIColor.clear
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -268,7 +268,7 @@ public class CollectionPickerView: UIView {
         collectionView.selectItem(
             at: indexPath,
             animated: animated,
-            scrollPosition: UICollectionViewScrollPosition())
+            scrollPosition: UICollectionView.ScrollPosition())
         if scroll {
             scrollToItem(at: index, animated: animated)
         }
@@ -402,14 +402,14 @@ extension CollectionPickerView: UICollectionViewDelegateFlowLayout {
         let lastIndexPath = IndexPath(item: number - 1, section: section)
         let lastSize = self.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: lastIndexPath)
         if isHorizontal {
-            return UIEdgeInsetsMake(
-                0, (collectionView.bounds.size.width - firstSize.width/2) / 2,
-                0, (collectionView.bounds.size.width - lastSize.width/2) / 2
+            return UIEdgeInsets(
+                top: 0, left: (collectionView.bounds.size.width - firstSize.width/2) / 2,
+                bottom: 0, right: (collectionView.bounds.size.width - lastSize.width/2) / 2
             )
         } else {
-            return UIEdgeInsetsMake(
-                (collectionView.bounds.size.height - firstSize.height/2) / 2, 0,
-                (collectionView.bounds.size.height - lastSize.height/2) / 2, 0
+            return UIEdgeInsets(
+                top: (collectionView.bounds.size.height - firstSize.height/2) / 2, left: 0,
+                bottom: (collectionView.bounds.size.height - lastSize.height/2) / 2, right: 0
             )
         }
     }

@@ -55,7 +55,7 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
     }
     
     func initialize() {
-        sectionInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+        sectionInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         minimumLineSpacing = 0.0
     }
     
@@ -88,7 +88,7 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
                 }
                 transform = CATransform3DTranslate(transform, 0, 0, _halfDim)
                 attributes.transform3D = transform
-                attributes.alpha = fabs(currentAngle) < maxAngle ? 1.0 : 0.0
+                attributes.alpha = abs(currentAngle) < maxAngle ? 1.0 : 0.0
                 return attributes;
             }
             return attributes
@@ -138,7 +138,7 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
     var mostRecentOffset : CGPoint = CGPoint()
     
     public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        let isHorizontal = scrollDirection == .horizontal
+        _ = scrollDirection == .horizontal
         
 //        if snapToCenter == false {
 //            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
