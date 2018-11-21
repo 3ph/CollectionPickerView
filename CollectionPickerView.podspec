@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CollectionPickerView'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'A generic customizable picker view based on UICollectionView.'
 
   s.description      = <<-DESC
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.author           = { '3ph' => 'instantni.med@gmail.com' }
   s.source           = { :git => 'https://github.com/3ph/CollectionPickerView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.swift_version = '4.2'
 
   s.ios.deployment_target = '8.0'
 
