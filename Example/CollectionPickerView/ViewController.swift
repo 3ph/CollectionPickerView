@@ -76,8 +76,8 @@ class ViewController: UIViewController {
     }
     
     fileprivate func sizeForString(_ string: NSString) -> CGSize {
-		let size = string.size(withAttributes: [NSAttributedStringKey.font: self.font])
-		let highlightedSize = string.size(withAttributes: [NSAttributedStringKey.font: self.highlightedFont])
+		let size = string.size(withAttributes: [NSAttributedString.Key.font: self.font])
+		let highlightedSize = string.size(withAttributes: [NSAttributedString.Key.font: self.highlightedFont])
 		return CGSize(
 			width: ceil(max(size.width, highlightedSize.width)),
 			height: ceil(max(size.height, highlightedSize.height)))
@@ -138,7 +138,7 @@ private class CollectionPickerViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             let animation = CATransition()
-            animation.type = kCATransitionFade
+            animation.type = CATransitionType.fade
             animation.duration = 0.15
             self.label.layer.add(animation, forKey: "")
             self.label.font = self.isSelected ? self.highlightedFont : self.font
