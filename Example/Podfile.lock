@@ -1,12 +1,12 @@
 PODS:
-  - CollectionPickerView (0.1.1)
-  - Nimble (7.3.1)
-  - Quick (1.3.2)
+  - CollectionPickerView (0.1.2)
+  - Nimble (8.0.1)
+  - Quick (2.1.0)
 
 DEPENDENCIES:
   - CollectionPickerView (from `../`)
-  - Nimble (~> 7.3.1)
-  - Quick (~> 1.3.2)
+  - Nimble (~> 8.0.1)
+  - Quick (~> 2.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CollectionPickerView: 6de4920404f1ee21be4036dd206140247096dcd7
-  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
-  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
+  CollectionPickerView: fd5c85a5e542c9d55ef9f849b34cb9f68a36e611
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
 
-PODFILE CHECKSUM: f8efcfed0441f5c19d69eb0a76907a34b7c5e037
+PODFILE CHECKSUM: 2e3253d6f4953f2045cde284a9479ab7ae08415e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
