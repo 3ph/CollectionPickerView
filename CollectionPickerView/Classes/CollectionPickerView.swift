@@ -214,7 +214,7 @@ public class CollectionPickerView: UIView {
                 collectionView,
                 layout: collectionView.collectionViewLayout,
                 sizeForItemAt: indexPath)
-            offset += (isHorizontal ? cellSize.width : cellSize.height)
+            offset += (isHorizontal ? cellSize.width : cellSize.height) + cellSpacing
         }
         
         let selectedIndexPath = IndexPath(item: index, section: 0)
@@ -423,7 +423,7 @@ extension CollectionPickerView: UICollectionViewDelegateFlowLayout {
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return cellSpacing
+        return 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

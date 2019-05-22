@@ -138,8 +138,8 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
     var mostRecentOffset : CGPoint = CGPoint()
     
     public override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        _ = scrollDirection == .horizontal
-        
+//        _ = scrollDirection == .horizontal
+//        
 //        if snapToCenter == false {
 //            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
 //        }
