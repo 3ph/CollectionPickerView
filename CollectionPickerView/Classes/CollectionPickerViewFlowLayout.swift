@@ -76,7 +76,7 @@ public class CollectionPickerViewFlowLayout: UICollectionViewFlowLayout {
     public override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         if let attributes = super.layoutAttributesForItem(at: indexPath)?.copy() as? UICollectionViewLayoutAttributes {
             if isFlat == false {
-                let distance = (_isHorizontal ? attributes.frame.midX : attributes.frame.midY) - _mid
+                let distance = _isHorizontal ? (attributes.frame.midX - _mid) : (_mid - attributes.frame.midY)
                 let currentAngle = maxAngle * distance / _halfDim / (CGFloat.pi / 2)
                 var transform = CATransform3DIdentity
                 if _isHorizontal {
